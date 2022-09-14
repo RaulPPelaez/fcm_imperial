@@ -22,6 +22,7 @@ namespace uammd_fcm{
     par.box = uammd::Box({Lx, Ly, Lz});
     par.hydrodynamicRadius = hydrodynamicRadius;
     par.tolerance = tolerance;
+    par.adaptBoxSize = true;
     auto fcm = std::make_shared<FCM>(par);
     return fcm;
   }

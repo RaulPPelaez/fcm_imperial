@@ -34,14 +34,9 @@ int main(){
   auto result = uammd_fcm::computeHydrodynamicDisplacements(fcm,
 							    i_pos_ptr, ft_ptr, i_numberParticles,
 							    o_pos_ptr, o_numberParticles);
-
-  auto monopoles = result.first;
-  auto dipoles = result.second;
-  thrust::host_vector<uammd::real3> h_monopoles(result.first.begin(), result.first.end());
-  thrust::host_vector<uammd::real3> h_dipoles(result.second.begin(), result.second.end());
-
-  std::cerr<<h_monopoles[0]<<std::endl;
-
+  thrust::host_vector<uammd::real> h_result(result.begin(), result.end());
+  //Linear displacement for the first particle in the x direction
+  std::cerr<<h_result[0]<<std::endl;
 
   return 0;
 }
